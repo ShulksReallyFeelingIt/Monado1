@@ -1,56 +1,47 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="movement_forward" id="35" x="-24" y="-4">
+  <block type="movement_forward" id="35" x="-27" y="-8">
     <next>
-      <block type="robot_delay" id="37" inline="true">
-        <value name="DELAY">
-          <block type="math_number" id="39">
-            <field name="NUM">3000</field>
-          </block>
-        </value>
+      <block type="oled_cleardisplay" id="1">
         <next>
-          <block type="oled_cleardisplay" id="1">
-            <next>
-              <block type="controls_whileUntil" id="2" inline="false">
-                <field name="MODE">UNTIL</field>
-                <value name="NUMBER">
-                  <block type="sensor_button" id="3">
-                    <field name="OBJECT">UP</field>
-                  </block>
-                </value>
-                <statement name="DO">
-                  <block type="oled_cleardisplay" id="4">
+          <block type="controls_whileUntil" id="2" inline="false">
+            <field name="MODE">UNTIL</field>
+            <value name="NUMBER">
+              <block type="sensor_button" id="3">
+                <field name="OBJECT">UP</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="oled_cleardisplay" id="4">
+                <next>
+                  <block type="oled_drawtext" id="5">
+                    <field name="TEXT">blue</field>
                     <next>
-                      <block type="oled_drawtext" id="5">
-                        <field name="TEXT">blue</field>
+                      <block type="oled_drawnumber" id="6" inline="true">
+                        <value name="NUMBER">
+                          <block type="sensor_spectrometer" id="7">
+                            <field name="LIGHT">BLUE</field>
+                          </block>
+                        </value>
                         <next>
-                          <block type="oled_drawnumber" id="6" inline="true">
-                            <value name="NUMBER">
-                              <block type="sensor_spectrometer" id="7">
-                                <field name="LIGHT">BLUE</field>
+                          <block type="oled_setcursor" id="16" inline="true">
+                            <value name="STARTX">
+                              <block type="math_number" id="23">
+                                <field name="NUM">0</field>
                               </block>
                             </value>
-                            <next>
-                              <block type="oled_setcursor" id="16" inline="true">
-                                <value name="STARTX">
-                                  <block type="math_number" id="23">
-                                    <field name="NUM">0</field>
-                                  </block>
-                                </value>
-                                <value name="STARTY">
-                                  <block type="math_number" id="25">
-                                    <field name="NUM">10</field>
-                                  </block>
-                                </value>
+                            <value name="STARTY">
+                              <block type="math_number" id="25">
+                                <field name="NUM">10</field>
                               </block>
-                            </next>
+                            </value>
                           </block>
                         </next>
                       </block>
                     </next>
                   </block>
-                </statement>
+                </next>
               </block>
-            </next>
+            </statement>
           </block>
         </next>
       </block>
