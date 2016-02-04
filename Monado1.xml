@@ -1,15 +1,45 @@
 <xml xmlns="http://www.w3.org/1999/xhtml">
-  <block type="movement_forward" id="14" x="20" y="42">
+  <block type="oled_cleardisplay" id="1" x="22" y="23">
     <next>
-      <block type="robot_delay" id="16" inline="true">
-        <value name="DELAY">
-          <block type="math_number" id="23">
-            <field name="NUM">3000</field>
+      <block type="controls_whileUntil" id="2" inline="false">
+        <field name="MODE">UNTIL</field>
+        <value name="NUMBER">
+          <block type="sensor_button" id="3">
+            <field name="OBJECT">UP</field>
           </block>
         </value>
-        <next>
-          <block type="movement_stop" id="33"></block>
-        </next>
+        <statement name="DO">
+          <block type="oled_cleardisplay" id="4">
+            <next>
+              <block type="oled_drawtext" id="5">
+                <field name="TEXT">blue</field>
+                <next>
+                  <block type="oled_drawnumber" id="6" inline="true">
+                    <value name="NUMBER">
+                      <block type="sensor_spectrometer" id="7">
+                        <field name="LIGHT">BLUE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="oled_setcursor" id="16" inline="true">
+                        <value name="STARTX">
+                          <block type="math_number" id="23">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <value name="STARTY">
+                          <block type="math_number" id="25">
+                            <field name="NUM">10</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
       </block>
     </next>
   </block>
